@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="qUTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <form class="formm" method="post" action="counter">
+        {% csrf_token %}
+        <h1>Text Counter</h1>
+        <h1>Input your text below</h1>
+        <textarea name="text" rows="9" cols="50"></textarea><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

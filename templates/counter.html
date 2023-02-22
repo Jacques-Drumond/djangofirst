@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="counter">
+        <h1 class="counter-word">Word counter</h1>
+        {% if number >= 5 %}
+        <h2 class="counter-word2" style= "color: red;">{{number}}</h2>
+        {% else %}
+        <h2 class="counter-word2" style= "color: green;">{{number}}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
