@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
+from .models import Emoji
 import random
 
 def index(request):
@@ -12,11 +13,12 @@ def counter(request):
     context = {'number': res}
     return render(request, 'counter.html', context)
 
-def gato(request):
-    gatos = ['🐈', '🐱', '😿', '😽', '😹']
-    faces = ['😀' , '😃' , '😄' , '😁', '😆', '😅', '😂', '🤣' ,'😊', '😇', '🙂', '🙃']
-    objects = ['⛱️', '⏰', '🤿', '🎐' , '🕹️', '📯', '💎', '📱', '📻', '🔌', '💻', '🎥']
-    context = {'gato': random.choice(gatos), 
-    'face': random.choice(faces), 
-    'obj':random.choice(objects)}
+def emoji(request):
+    emojis = Emoji()
+    emojis.is_emoji = False
+    context = {'emoji':emojis}
     return render(request, 'gatio.html', context)
+
+
+def teste(request):
+    return render(request, 'teste.html')
