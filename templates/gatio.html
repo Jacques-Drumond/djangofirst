@@ -9,9 +9,15 @@
     <title>Document</title>
 </head>
 <body>
+    {% if emoji.is_emoji == True %}
+    <h1 class="ab">This feature is True</h1>
+    {% elif emoji.is_emoji == None%}
+    <h1 class="ab">This feature is None</h1>
+    {% else %}
+    <h1 class="ab">This feature is False</h1>
+    {% endif %}
     <h1 class="ab">{{emoji.gato}}</h1>
     <h1 class="ab">{{emoji.face}}</h1>
     <h1 class="ab">{{emoji.objeto}}</h1>
-    <h1 class="ab">{{emoji.is_emoji}}</h1>
 </body>
 </html>

@@ -2,11 +2,9 @@ from django.db import models
 import random
 # Create your models here.
 
-class Feature:
-    def __init__(self, id, name, details):
-        self.id = id
-        self.name = name
-        self.details = details
+class Feature(models.Model):
+    name = models.CharField(max_length=100)
+    details = models.CharField(max_length=500)
 
 
 class Emoji:
