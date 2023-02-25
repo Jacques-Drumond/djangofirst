@@ -9,12 +9,19 @@
     <title>Document</title>
 </head>
 <body class="a">
-    <form class="formm" method="post" action="counter">
-        {% csrf_token %}
-        <h1>Text Counter</h1>
-        <h1>Input your text below</h1>
-        <textarea name="text" rows="9" cols="50"></textarea><br>
-        <input type="submit">
-    </form>
+    {% if user.is_authenticated %}
+    <h1>Wellcome {{user.username}}</h1>
+    <button>
+        <a href="logout">Logout</a>
+    </button>
+    {% else %}
+    <h1>Wellcome visitor</h1>
+    <button>
+        <a href="login">Login</a>
+    </button><br>
+    <button>
+        <a href="register">Register</a>
+    </button>
+    {% endif %}
 </body>
 </html>
