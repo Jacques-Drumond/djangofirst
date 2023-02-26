@@ -66,3 +66,6 @@ def emoji(request):
 
 def teste(request):
     return render(request, 'teste.html')
+
+def post(request, pk):
+    return render(request, 'post.html', {'pk': pk})
