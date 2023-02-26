@@ -65,7 +65,8 @@ def emoji(request):
     return render(request, 'gatio.html', context)
 
 def teste(request):
-    return render(request, 'teste.html')
+    posts = [1,2,3,4, 'jacques', 'brabo']
+    return render(request, 'teste.html', {'posts':posts})
 
 def post(request, pk):
     return render(request, 'post.html', {'pk': pk})
