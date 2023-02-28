@@ -5,7 +5,7 @@ from django.contrib import messages
 # Create your views here.
 from .models import Emoji
 import random
-
+import os
 def index(request):
     return render(request, 'index.html')
 
@@ -65,8 +65,30 @@ def emoji(request):
     return render(request, 'gatio.html', context)
 
 def teste(request):
-    posts = [1,2,3,4, 'jacques', 'brabo']
+    posts = [1,2,3,4, 'jacques', 'brabo'] 
     return render(request, 'teste.html', {'posts':posts})
 
 def post(request, pk):
     return render(request, 'post.html', {'pk': pk})
+
+import os
+
+def gato(request):
+    dir_path = "static\media"
+
+    file_list = os.listdir(dir_path)
+    images = [i for i in file_list]
+
+    keys = []
+
+    for number in range(len(file_list)):
+        new_name = 'string' + str(number)
+        keys.append(new_name)
+
+    pathmedia = r'static/media/'
+
+    images = [pathmedia + filename for filename in images]
+
+    a = 'jacques'
+    testes = [1,2,3,4,5]
+    return render(request, 'gatio.html', {'testes': images})
