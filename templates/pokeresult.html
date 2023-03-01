@@ -1,19 +1,24 @@
-
 {% load static %}
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>My Result Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/poke.css' %}">
 </head>
-<body>
-
+<body class="boduy">
     {% block content %}
-      <h1>Pokemon Result</h1>
+      <div>
+          <h1>{{ pokemon.poke_name }}</h1>
+          <h1>
+            <p>Type: </p> <p style="color: {{ pokemon.color }}">{{ pokemon.poketype}}
+        </h1>
+      </div>
       {% if pokemon.poke_img %}
-        <img src="{{ pokemon.poke_img }}" alt="{{ pokemon.poke_name }}">
+      <div class="image-container">
+          <img src="{{ pokemon.poke_img }}" alt="{{ pokemon.poke_name }}">
+      </div>
       {% else %}
-        <p>Sorry, we could not find a Pokemon with that name.</p>
+      <p>Sorry, we could noaat find a Pokemon with that name.</p>
       {% endif %}
     {% endblock %}
 </body>

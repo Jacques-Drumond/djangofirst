@@ -85,9 +85,9 @@ def pokeform(request):
     return render(request, 'pokeform.html')
 
 def pokeresult(request):
-    if request.method == 'POST':
-        text = request.POST.get('text')
+    text = request.POST.get('text')
+    if request.method == 'POST' and text != '':
         pokemon = Pokemon(poke_name=text) 
         return render(request, 'pokeresult.html', {'pokemon': pokemon})
     else:
-        return render(request, 'pokeform.html')
+        return render(request, 'pokeresult.html')

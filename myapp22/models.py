@@ -20,11 +20,26 @@ class Emoji:
 
 class Pokemon:
     def __init__(self, poke_name):
-        self.poke_name = poke_name
+        poke_name = str(poke_name).lower()
         response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{poke_name}")
         if response.status_code == 200:
             data = response.json()
             self.poke_img = data['sprites']['front_default']
+            self.poke_name = str(poke_name).capitalize()
+            self.poketype = str(data['types'][0]['type']['name']).capitalize()
+            self.color = ''
+            if self.poketype == 'Fire':
+                self.color = 'Red'
+            elif self.poketype == 'Water':
+                self.color = 'Blue'
+            elif self.poketype == 'Electric':
+                self.color = 'Yellow'
+            elif self.poketype == 'Rock':
+                self.color = 'Grey'
+            elif self.poketype == 'Grass':
+                self.color = 'Green'
+            else:
+                self.color = 'Black'
         else:
             self.poke_img = None
 
