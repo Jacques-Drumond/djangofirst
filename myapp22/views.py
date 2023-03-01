@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 # Create your views here.
-from .models import Emoji
+from .models import Emoji, Pokemon
 import os
 
 def index(request):
@@ -80,3 +80,14 @@ def gato(request):
     images = ['static/media/' + filename for filename in images]
 
     return render(request, 'gatio.html', {'testes': images})
+
+def pokeform(request):
+    return render(request, 'pokeform.html')
+
+def pokeresult(request):
+    if request.method == 'POST':
+        text = request.POST.get('text')
+        pokemon = Pokemon(poke_name=text) 
+        return render(request, 'pokeresult.html', {'pokemon': pokemon})
+    else:
+        return render(request, 'pokeform.html')

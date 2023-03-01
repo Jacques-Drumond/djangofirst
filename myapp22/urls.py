@@ -9,5 +9,7 @@ urlpatterns = [
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
     path(f'post/<str:pk>', views.post, name='post'),
-    path('gato', views.gato, name='post')
+    path('gato', views.gato, name='post'),
+    path('pokeform', views.pokeform, name='post'),
+    path('pokeresult', views.pokeresult, name='post')
 ]

@@ -1,0 +1,20 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Result Page</title>
+</head>
+<body>
+
+    {% block content %}
+      <h1>Pokemon Result</h1>
+      {% if pokemon.poke_img %}
+        <img src="{{ pokemon.poke_img }}" alt="{{ pokemon.poke_name }}">
+      {% else %}
+        <p>Sorry, we could not find a Pokemon with that name.</p>
+      {% endif %}
+    {% endblock %}
+</body>
+</html>
