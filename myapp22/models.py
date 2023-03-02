@@ -27,19 +27,10 @@ class Pokemon:
             self.poke_img = data['sprites']['front_default']
             self.poke_name = str(poke_name).capitalize()
             self.poketype = str(data['types'][0]['type']['name']).capitalize()
-            self.color = ''
-            if self.poketype == 'Fire':
-                self.color = 'Red'
-            elif self.poketype == 'Water':
-                self.color = 'Blue'
-            elif self.poketype == 'Electric':
-                self.color = 'Yellow'
-            elif self.poketype == 'Rock':
-                self.color = 'Grey'
-            elif self.poketype == 'Grass':
-                self.color = 'Green'
-            else:
-                self.color = 'Black'
+            poketypes = ['Fire', 'Water', 'Electric', 'Rock', 'Grass']
+            poke_color = ['Red', 'Blue', 'Yellow', 'Grey', 'Green']
+            self.poke_dict = dict(zip(poketypes, poke_color))
+            self.poke_color = self.poke_dict.get(self.poketype).lower()
         else:
             self.poke_img = None
 
