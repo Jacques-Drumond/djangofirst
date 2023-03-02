@@ -20,8 +20,8 @@ class Emoji:
 
 class Pokemon:
     def __init__(self, poke_name):
-        poke_name = str(poke_name).lower()
-        response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{poke_name}")
+        self.poke_name = str(poke_name).lower()
+        response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{self.poke_name}")
         if response.status_code == 200:
             self.data = response.json()
             self.poke_img = self.data['sprites']['front_default']
