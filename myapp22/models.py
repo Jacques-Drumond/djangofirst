@@ -23,10 +23,11 @@ class Pokemon:
         poke_name = str(poke_name).lower()
         response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{poke_name}")
         if response.status_code == 200:
-            data = response.json()
-            self.poke_img = data['sprites']['front_default']
+            self.data = response.json()
+            self.poke_img = self.data['sprites']['front_default']
+            self.poke_img2 = self.data['sprites']['back_default']
             self.poke_name = str(poke_name).capitalize()
-            self.poketype = str(data['types'][0]['type']['name']).capitalize()
+            self.poketype = str(self.data['types'][0]['type']['name']).capitalize()
             poketypes = ['Fire', 'Water', 'Electric', 'Rock', 'Grass', 'Steel']
             poke_color = ['Red', 'Blue', 'Yellow', 'Grey', 'Green', 'Grey']
             self.poke_dict = dict(zip(poketypes, poke_color))
